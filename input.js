@@ -1,15 +1,15 @@
 'use strict'
 /**
- *  Для использования нужно только подключить скрипт и задать input класс form__load__file
+ *  Для использования нужно только подключить скрипт
  * 
  * Так же можно использовать для отправки либо input типа submit или button 
  * 
  * Так же после отправки очищает input и блокирует кнопку 
  */
-
-const element = document.querySelectorAll('.form__load__file');
-const submit = document.querySelector('input[type="submit"]');
-const btn = document.querySelector('input[type="button"]');
+const form = document.querySelectorAll('#form__load');
+const element = form[0].querySelectorAll('input[type="file"]');
+const submit = form[0].querySelector('input[type="submit"]');
+const btn = form[0].querySelector('input[type="button"]');
 const disabled = 'disabled';
 
 
@@ -73,7 +73,7 @@ const loadFiles = () => {
 }
 
 const fetchSend = (file, i) => {
-    let url = 'test.php'
+    let url = 'test.php'/* URL adress*/
     let formData = new FormData()
     formData.append('file', file)
     fetch(url, {
